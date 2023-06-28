@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
-<h1>Monuments</h1>
+      <p style="color: green"><%= notice %></p>
 
-<div id="monuments">
-  <% @monuments.each do |monument| %>
-    <%= render monument %>
-    <p>
-      <%= link_to "Show this monument", monument %>
-    </p>
-  <% end %>
+      <h1>Monuments</h1>
+
+      <div id="monuments">
+        <% @monuments.each do |monument| %>
+          <%= render monument %>
+          <p>
+            <%= link_to "Show this monument", monument %>
+          </p>
+        <% end %>
+      </div>
+
+      <div data-controller='toggle' class='mt-5'>
+        <button class="btn btn-outline-primary mb-3">Add a new monument</button>
+        <%= render "form", monument: @monument %>
+      </div>
+
+
+    </div>
+  </div>
 </div>
-
-<%= link_to "New monument", new_monument_path %>
